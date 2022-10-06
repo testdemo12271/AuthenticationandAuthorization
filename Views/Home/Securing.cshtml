@@ -4,3 +4,11 @@
 @{
 }
 <h1>This is the first view </h1>
+<h3>Welcome @User.Identity.Name</h3>
+<ul>
+    @foreach(var c in User.Claims)
+    {
+        <li>@c.Type : @c.Value</li>
+
+    }
+</ul>

@@ -17,7 +17,7 @@ namespace AuthenticationandAuthorization
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
                 .AddCookie(options =>
                 {
-                    options.LoginPath = "/Login";
+                    options.LoginPath = "/login";
                 });
         }
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
