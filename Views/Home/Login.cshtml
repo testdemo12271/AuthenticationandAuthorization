@@ -2,5 +2,16 @@
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
+    var returnUrl = ViewData["ReturnUrl"] as string;
+    var Wrongcredientials = TempData["Wrongcredientials"] as string;
 }
 <h1>Login Page</h1>
+@if(!string.IsNullOrEmpty(Wrongcredientials))
+{
+    <h3 class= "Danger" style="padding:15px;">@Wrongcredientials</h3>
+}
+<form action="/login?ReturnUrl=@System.Net.WebUtility.UrlEncode(returnUrl)" method="post">
+    <input type="text" name="username" placeholder="UserName" />
+    <input type="password" name="password" placeholder="Password" />
+    <input type="submit" value="login" />
+</form>
